@@ -9,6 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DiaryHomeComponent } from './diary-home/diary-home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/post.reducer';
+
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     LayoutModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      postList: reducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
