@@ -24,7 +24,7 @@ export class DiaryHomeComponent implements OnInit {
     if(!this.form.get('title')?.value){
       console.log('Empty Title');
     }
-    if(!this.form.get('description')?.value){
+    else if(!this.form.get('description')?.value){
       console.log('Empty description');
     }
     else{
