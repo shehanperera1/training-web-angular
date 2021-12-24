@@ -16,8 +16,8 @@ export class DiaryHomeComponent implements OnInit {
   public posts:Observable<Post[]> = this.store.pipe(select(selectPosts))
   constructor(private store:Store) {
     this.form = new FormGroup({
-      title: new FormControl('',Validators.required),
-      description: new FormControl('',Validators.required)
+      title: new FormControl(''),
+      description: new FormControl('')
     })
   }
   ngOnInit(): void {
@@ -25,7 +25,19 @@ export class DiaryHomeComponent implements OnInit {
 
 
   public submitForm(): void {
-    let post = new Post(this.form.get('title')?.value,this.form.get('description')?.value);
-    this.store.dispatch(submitPost({post:post}));
+    if(!this.form.get('title')?.value){
+      console.log('Empty Title');
+    }
+    else if(!this.form.get('description')?.value){
+      console.log('Empty description');
+    }
+    else{
+      let post = new Post(this.form.get('title')?.value,this.form.get('description')?.value);
+      this.store.dispatch(submitPost({post:post}));
+    console.log(this.form.get('title')?.value);
+    console.log(this.form.get('description')?.value);
+    }
+    
+    this.form.reset();
   }
 }
