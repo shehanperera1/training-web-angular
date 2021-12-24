@@ -1,11 +1,10 @@
 <div class="demo">
-  <div class="card text-white bg-info mb-3 border-primary" style="max-width: 18rem;">
+  <div class="card bg-success p-2 text-dark bg-opacity-50" style="max-width: 18rem;">
     <div class="card-header"><span class="badge bg-success">Primary</span></div>
     <div class="card-body">
       <h5 class="card-title">{{data?.title}}</h5>
       <p class="card-text">{{(readMore) ? data?.description : data?.description | slice:0:100}}</p>
-      <a href="#" class="btn btn-primary" (click)="showMore()">{{(!readMore) ? 'SHOW MORE':'SHOW LESS'  }}</a>
+      <a href="#" class="btn btn-primary bg-success p-2 text-white" (click)="showMore()">{{(!readMore) ? 'SHOW MORE':'SHOW LESS'  }}</a>
     </div>
   </div>
 </div>
-
